@@ -1,7 +1,20 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Font } from 'expo';
+/*import fontAwesome from '../../assets/fonts/fontawesome-webfont.ttf';*/
 
 class Circlebotton extends React.Component {
+/*state = {
+    fontLoaded: false,
+}
+
+  async componentWillMount() {
+   await Font.loadAsync({
+     FontAwesome : fontAwesome,
+   });
+   this.setState({ fontLoaded: true });
+ }
+*/
   render() {
     const {style,color} =this.props;
     let bgColor ='#f765a0'
@@ -13,9 +26,14 @@ class Circlebotton extends React.Component {
     }
     return(
       <View style={[styles.memoaddbotton,style,{backgroundColor:bgColor}]}>
-      <Text style={[styles.memoaddbottonTitle,{color:textColor}]}>
-       {this.props.children}
-      </Text>
+        {this.props.children}
+      {/*  {
+          this.state.fontLoaded ? (
+            <Text style={[styles.memoaddbottonTitle,{color:textColor}]}>
+             {this.props.children}
+            </Text>
+          ) : null
+        }*/}
       </View>
     );
   }
@@ -23,6 +41,7 @@ class Circlebotton extends React.Component {
 
 const styles= StyleSheet.create({
   memoaddbotton:{
+    /*fontFamily:'FontAwesome',*/
     position: 'absolute',
     bottom: 32,
     right: 32,

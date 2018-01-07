@@ -15,14 +15,14 @@ class MemoDetailScreen extends React.Component{
        </View>
       </View>
 
-      <View styke={styles.MemoContents}>
+      <View style={styles.MemoContents}>
         <Text>
            講座のアイディアです。
         </Text>
       </View>
 
       <Circlebotton color="white" style={styles.editBotton}>
-            +
+        <Text style={styles.bottontext} >✑</Text>
       </Circlebotton>
     </View>
     );
@@ -62,6 +62,10 @@ const styles = StyleSheet.create({
   editBotton:{
     top:75,
   },
+  bottontext:{
+    fontSize:30,
+    color:'pink',
+  }
 });
 
 
