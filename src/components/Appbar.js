@@ -9,9 +9,7 @@ class Appbar extends React.Component {
           <Text style={styles.appbartitle} >MEMOT</Text>
         </View>
       </View>
-
-
-    );
+        );
   }
 }
 
