@@ -3,6 +3,7 @@ import { StyleSheet, Text, View,TouchableHighlight } from 'react-native';
 
 class MemoList extends React.Component {
   render(){
+    console.log(this.props.memolist);
     return(
       <View style={styles.memolist}>
         <TouchableHighlight onPress={() => {this.props.navigation.navigate('MemoDetail')}}>
