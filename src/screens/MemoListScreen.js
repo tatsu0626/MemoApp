@@ -5,11 +5,15 @@ import Circlebotton from '../elements/Circlebotton';
 
 
 class MemoListScreen extends React.Component{
+  handlePress(){
+    const {params}=this.props.navigation.state;
+    this.props.navigation.navigate('MemoCreate',{currentUser:params.currentUser});
+  }
   render(){
     return(
       <View style={styles.container}>
         <MemoList navigation={this.props.navigation} />
-        <Circlebotton onPress={()=>{this.props.navigation.navigate('MemoEdit');}}>
+        <Circlebotton onPress={this.handlePress.bind(this)}>
           <Text style={styles.bottontext}>+</Text>
         </Circlebotton>
       </View>
