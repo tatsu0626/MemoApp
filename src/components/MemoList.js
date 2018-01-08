@@ -1,35 +1,46 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View,TouchableHighlight } from 'react-native';
 
 class MemoList extends React.Component {
   render(){
     return(
       <View style={styles.memolist}>
-        <View style={styles.memolistitem}>
-          <Text style={styles.memotitle}>講座のアイディア</Text>
-          <Text style={styles.memodate}>2018/1/10</Text>
-        </View>
-
-       <View style={styles.memolistitem}>
+        <TouchableHighlight onPress={() => {this.props.navigation.navigate('MemoDetail')}}>
+          <View style={styles.memolistitem}>
             <Text style={styles.memotitle}>講座のアイディア</Text>
             <Text style={styles.memodate}>2018/1/10</Text>
-        </View>
+          </View>
+        </TouchableHighlight>
 
-       <View style={styles.memolistitem}>
+        <TouchableHighlight onPress={() => {this.props.navigation.navigate('MemoDetail')}}>
+          <View style={styles.memolistitem}>
+            <Text style={styles.memotitle}>講座のアイディア</Text>
+            <Text style={styles.memodate}>2018/1/10</Text>
+          </View>
+        </TouchableHighlight>
+
+        <TouchableHighlight onPress={() => {this.props.navigation.navigate('MemoDetail')}}>
+          <View style={styles.memolistitem}>
              <Text style={styles.memotitle}>講座のアイディア</Text>
              <Text style={styles.memodate}>2018/1/10</Text>
-       </View>
+          </View>
+        </TouchableHighlight>
 
-       <View style={styles.memolistitem}>
+        <TouchableHighlight onPress={() => {this.props.navigation.navigate('MemoDetail')}}>
+          <View style={styles.memolistitem}>
               <Text style={styles.memotitle}>講座のアイディア</Text>
               <Text style={styles.memodate}>2018/1/10</Text>
-       </View>
+          </View>
+        </TouchableHighlight>
 
-       <View style={styles.memolistitem}>
+        <TouchableHighlight onPress={() => {this.props.navigation.navigate('MemoDetail')}}>
+          <View style={styles.memolistitem}>
               <Text style={styles.memotitle}>講座のアイディア</Text>
               <Text style={styles.memodate}>2018/1/10</Text>
-       </View>
-      </View>
+            </View>
+        </TouchableHighlight>
+
+    </View>
 
     );
   }

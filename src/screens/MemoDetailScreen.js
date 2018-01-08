@@ -21,7 +21,7 @@ class MemoDetailScreen extends React.Component{
         </Text>
       </View>
 
-      <Circlebotton color="white" style={styles.editBotton}>
+      <Circlebotton color="white" style={styles.editBotton} onPress={()=>{this.props.navigation.navigate('MemoEdit')}}>
         <Text style={styles.bottontext} >✑</Text>
       </Circlebotton>
     </View>
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   bottontext:{
     fontSize:30,
     color:'pink',
-  }
+  },
 });
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View,TouchableHighlight } from 'react-native';
 import { Font } from 'expo';
 /*import fontAwesome from '../../assets/fonts/fontawesome-webfont.ttf';*/
 
@@ -16,7 +16,7 @@ class Circlebotton extends React.Component {
  }
 */
   render() {
-    const {style,color} =this.props;
+    const {style,color,onPress} =this.props;
     let bgColor ='#f765a0'
     let textColor ='white'
 
@@ -25,7 +25,8 @@ class Circlebotton extends React.Component {
       textColor='#f765a0';
     }
     return(
-      <View style={[styles.memoaddbotton,style,{backgroundColor:bgColor}]}>
+    <TouchableHighlight style={[styles.container,style]} onPress={onPress} underlayColor='transparent'>
+      <View style={[styles.memoaddbotton,{backgroundColor:bgColor}]}>
         {this.props.children}
       {/*  {
           this.state.fontLoaded ? (
@@ -35,16 +36,19 @@ class Circlebotton extends React.Component {
           ) : null
         }*/}
       </View>
+    </TouchableHighlight>
     );
   }
 }
 
 const styles= StyleSheet.create({
-  memoaddbotton:{
-    /*fontFamily:'FontAwesome',*/
+  container:{
     position: 'absolute',
     bottom: 32,
     right: 32,
+  },
+  memoaddbotton:{
+    /*fontFamily:'FontAwesome',*/
     width: 48,
     height: 48,
     borderRadius: 24,
