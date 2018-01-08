@@ -2,26 +2,45 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Circlebotton from '../elements/Circlebotton'
 
+const dateString=(date)=>{
+  const str=date.toISOString();
+  return str.split('T')[0];
+};
+
 class MemoDetailScreen extends React.Component{
+  state={
+    memo:{},
+  }
+
+  componentWillMount(){
+    const{params}=this.props.navigation.state;
+    this.setState({memo:params.memo})
+  }
+
   render(){
+    const{memo}=this.state;
     return(
     <View style={styles.container}>
       <View>
        <View style={styles.MemoHeader}>
         <View>
-          <Text style={styles.MemoHeaderTitle}>講座のアイディア</Text>
-          <Text style={styles.MemoHeaderDate}>2018/1/7</Text>
+          <Text style={styles.MemoHeaderTitle}>{memo.body.substring(0,10)}</Text>
+          <Text style={styles.MemoHeaderDate}>{dateString(memo.createdOn)}</Text>
         </View>
        </View>
       </View>
 
       <View style={styles.MemoContents}>
-        <Text>
-           講座のアイディアです。
+        <Text style={styles.memobody}>
+           {memo.body}
         </Text>
       </View>
 
-      <Circlebotton color="white" style={styles.editBotton} onPress={()=>{this.props.navigation.navigate('MemoEdit')}}>
+      <Circlebotton
+        color="white"
+        style={styles.editBotton}
+        onPress={()=>{this.props.navigation.navigate('MemoEdit',{memo})}}
+      >
         <Text style={styles.bottontext} >✑</Text>
       </Circlebotton>
     </View>
@@ -65,6 +84,10 @@ const styles = StyleSheet.create({
   bottontext:{
     fontSize:30,
     color:'pink',
+  },
+  memobody:{
+    lineHeight:22,
+    fontSize:15,
   },
 });
 
