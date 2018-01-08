@@ -7,7 +7,7 @@ import firebase from 'firebase';
 
 class MemoListScreen extends React.Component{
   state={
-    memolist:[],
+    memoList:[],
   }
   componentWillMount(){
     const{currentUser}=firebase.auth();
@@ -17,9 +17,9 @@ class MemoListScreen extends React.Component{
       const memoList=[];
       querySnapshot.forEach((doc)=>{
         console.log(doc.data());
-        memoList.push(doc.data());
+        memoList.push({...doc.data(),key:doc.id});
       });
-      this.setState({memoList:memolist})
+      this.setState({ memoList });
     })
     .catch((error)=>{
       console.log(error);
@@ -31,7 +31,7 @@ class MemoListScreen extends React.Component{
   render(){
     return(
       <View style={styles.container}>
-        <MemoList memolist={this.state.memolist} navigation={this.props.navigation} />
+        <MemoList memoList={this.state.memoList} navigation={this.props.navigation} />
         <Circlebotton onPress={this.handlePress.bind(this)}>
           <Text style={styles.bottontext}>+</Text>
         </Circlebotton>

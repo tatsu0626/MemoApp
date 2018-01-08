@@ -1,47 +1,24 @@
 import React from 'react';
-import { StyleSheet, Text, View,TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View,TouchableHighlight,FlatList } from 'react-native';
 
 class MemoList extends React.Component {
+  renderMemo({item}) {
+    console.log(item);
+    return(
+        <TouchableHighlight onPress={() => {this.props.navigation.navigate('MemoDetail')}}>
+          <View style={styles.memolistitem}>
+            <Text style={styles.memotitle}>{item.body}</Text>
+            <Text style={styles.memodate}>2018/1/10</Text>
+          </View>
+        </TouchableHighlight>
+      );
+  }
+
   render(){
-    console.log(this.props.memolist);
     return(
       <View style={styles.memolist}>
-        <TouchableHighlight onPress={() => {this.props.navigation.navigate('MemoDetail')}}>
-          <View style={styles.memolistitem}>
-            <Text style={styles.memotitle}>講座のアイディア</Text>
-            <Text style={styles.memodate}>2018/1/10</Text>
-          </View>
-        </TouchableHighlight>
-
-        <TouchableHighlight onPress={() => {this.props.navigation.navigate('MemoDetail')}}>
-          <View style={styles.memolistitem}>
-            <Text style={styles.memotitle}>講座のアイディア</Text>
-            <Text style={styles.memodate}>2018/1/10</Text>
-          </View>
-        </TouchableHighlight>
-
-        <TouchableHighlight onPress={() => {this.props.navigation.navigate('MemoDetail')}}>
-          <View style={styles.memolistitem}>
-             <Text style={styles.memotitle}>講座のアイディア</Text>
-             <Text style={styles.memodate}>2018/1/10</Text>
-          </View>
-        </TouchableHighlight>
-
-        <TouchableHighlight onPress={() => {this.props.navigation.navigate('MemoDetail')}}>
-          <View style={styles.memolistitem}>
-              <Text style={styles.memotitle}>講座のアイディア</Text>
-              <Text style={styles.memodate}>2018/1/10</Text>
-          </View>
-        </TouchableHighlight>
-
-        <TouchableHighlight onPress={() => {this.props.navigation.navigate('MemoDetail')}}>
-          <View style={styles.memolistitem}>
-              <Text style={styles.memotitle}>講座のアイディア</Text>
-              <Text style={styles.memodate}>2018/1/10</Text>
-            </View>
-        </TouchableHighlight>
-
-    </View>
+      <FlatList data={this.props.memoList} renderItem={this.renderMemo.bind(this)} />
+      </View>
 
     );
   }
